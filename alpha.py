@@ -24,3 +24,49 @@ for a in array:
     print("Unique Array\t: ", arrUnique)
     print("Repeated Array\t: ", arrRepeat)
 '''
+
+
+def fibonacci_list(size):
+    f_list = []
+
+    def add_new_fibonacci_number(fibonacci_numbers):
+        f_size = len(fibonacci_numbers)
+        if f_size == 0:
+            fibonacci_numbers.append(1)
+            fibonacci_numbers.append(1)
+        else:
+            fibonacci_numbers.append(fibonacci_numbers[f_size - 2] + fibonacci_numbers[f_size - 1])
+        return fibonacci_numbers
+
+    while len(f_list) < size:
+        add_new_fibonacci_number(f_list)
+    return f_list
+
+
+def fibonacciRecursive(num):
+    cache = [0] * num
+
+    def fibonacci(n):
+        if (n == 1) or (n == 2):
+            cache[n - 1] = 1
+        elif cache[n - 1] == 0:
+            cache[n - 1] = fibonacci(n - 2) + fibonacci(n - 1)
+        return cache[n - 1]
+
+    fibonacci(num)
+    print(cache)
+
+'''
+import timeit
+num = 40
+
+start = timeit.default_timer()
+print(fibonacci_list(num))
+print(timeit.default_timer() - start)
+
+start = timeit.default_timer()
+fibonacciRecursive(num)
+print(timeit.default_timer() - start)
+
+# learn more https://r-knott.surrey.ac.uk/Fibonacci/fibFormula.html
+'''
