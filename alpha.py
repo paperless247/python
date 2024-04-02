@@ -31,8 +31,7 @@ def fibonacci_list(size):
 
     def add_new_fibonacci_number(fibonacci_numbers):
         f_size = len(fibonacci_numbers)
-        if f_size == 0:
-            fibonacci_numbers.append(1)
+        if f_size =< 1:
             fibonacci_numbers.append(1)
         else:
             fibonacci_numbers.append(fibonacci_numbers[f_size - 2] + fibonacci_numbers[f_size - 1])
@@ -48,8 +47,11 @@ def fibonacciRecursive(num):
 
     def fibonacci(n):
         if not n: return []
-        if (n == 1) or (n == 2):
+        if (n == 1):
             cache[n - 1] = 1
+        elif n == 2:
+            cache[n - 1] = 1
+            cache[n - 2] = 1
         elif cache[n - 1] == 0:
             cache[n - 1] = fibonacci(n - 2) + fibonacci(n - 1)
         return cache[n - 1]
