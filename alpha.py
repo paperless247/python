@@ -71,5 +71,16 @@ start = timeit.default_timer()
 fibonacciRecursive(num)
 print(timeit.default_timer() - start)
 
+for num in range(15):
+    print('n = ', num)
+
+    start = timeit.default_timer()
+    print(fibonacci_list(num))
+    print(timeit.default_timer() - start)
+
+    start = timeit.default_timer()
+    fibonacciRecursive(num)
+    print(timeit.default_timer() - start)
+
 # learn more https://r-knott.surrey.ac.uk/Fibonacci/fibFormula.html
 '''
