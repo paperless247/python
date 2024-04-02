@@ -47,6 +47,7 @@ def fibonacciRecursive(num):
     cache = [0] * num
 
     def fibonacci(n):
+        if not n: return []
         if (n == 1) or (n == 2):
             cache[n - 1] = 1
         elif cache[n - 1] == 0:
